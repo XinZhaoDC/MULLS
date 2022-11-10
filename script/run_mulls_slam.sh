@@ -2,17 +2,29 @@
 #########################################################################################
 #                                  MULLS SLAM                                           #
 ############################# part to configure (down)###################################
-sequence_id=00
+#sequence_id=00
 
 #experiment unique name
-exp_id=xxx_id
+exp_id=0
 
 #data path (base folder)
-diskbase=/media/yuepan/BackupPlus/Data/
+#diskbase=/media/yuepan/BackupPlus/Data/
 
 #data path (project folder)
 #Example demo
-project_folder=./demo_data
+
+#1110_laotu_path=/home/timesong/3_code/MULLS/data/1110_laotu
+#1112_luojiashan_forest_path=/home/timesong/3_code/MULLS/data/1112_luojiashan_forest
+#1112_xinxixuebu_path=/home/timesong/3_code/MULLS/data/1112_xinxixuebu
+#1114_suidao_path=/home/timesong/3_code/MULLS/data/1114_suidao
+#1114_zhuoer_path=/home/timesong/3_code/MULLS/data/1114_zhuoer
+#1206_luojiashan_mountain_path=/home/timesong/3_code/MULLS/data/1206_luojiashan_mountain
+#1229_chuangyicheng_path=/home/timesong/3_code/MULLS/data/1229_chuangyicheng
+#1229_ditiezhan_path=/home/timesong/3_code/MULLS/data/1229_ditiezhan
+#1229_dixiatingchechang_path=/home/timesong/3_code/MULLS/data/1229_dixiatingchechang
+#1229_guangbutun_path=/home/timesong/3_code/MULLS/data/1229_guangbutun
+#1230_banshanlu_path=/home/timesong/3_code/MULLS/data/1230_banshanlu
+project_folder=/home/timesong/3_code/MULLS/data/1230_banshanlu
 #KITTI
 #project_folder=${diskbase}/kitti-dataset/sequences/${sequence_id}
 #HESAI
@@ -40,7 +52,7 @@ pc_format=pcd
 pc_folder=${project_folder}/${pc_format}
 
 #input ground truth pose file path (optional)
-gt_body_pose_file=${project_folder}/${sequence_id}.txt #kitti ground truth file
+#gt_body_pose_file=${project_folder}/${sequence_id}.txt #kitti ground truth file
 #gt_body_pose_file=${project_folder}/pose_gt_lidar.txt
 
 #input calibration file path (optional) 
@@ -53,9 +65,27 @@ config_file=./script/config/lo_gflag_list_example_demo.txt
 #config_file=./script/config/lo_gflag_list_kitti_ultrafast.txt
 
 #input the frame you'd like to use
+
+#1110_laotu=9561         1 less
+#1112_luojiashan_forest=21553 good
+#1112_xinxixuebu=29639   1 more
+#1114_suidao=14023       good
+#1114_zhuoer=12910       good
+#1206_luojiashan_mountain=21871  good
+#1229_chuangyicheng=16285  good
+#1229_ditiezhan=15800 good
+#1229_dixiatingchechang=13948 good
+#1229_guangbutun=16826 good
+#1230_banshanlu=11364 good
+
+
 frame_begin=0
-frame_end=99999
+frame_end=11364
 frame_step=1
+
+# 1112_xinxixuebu 29639
+# 1114_suidao 14023
+# 1114_zhuoer 12910
 
 ############################### part to configure (up) ###################################
 
@@ -104,7 +134,7 @@ ls ${pc_folder} >> ${pc_folder}_filelist.txt
 --frame_num_end=${frame_end} \
 --frame_step=${frame_step} \
 --flagfile=${config_file} \
---real_time_viewer_on=1 \
+--real_time_viewer_on=0 \
 --gt_in_lidar_frame=0 \
 --gt_oxts_format=0 \
 --write_out_map_on=0 \
